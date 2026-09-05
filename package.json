@@ -4,7 +4,7 @@
   "description": "Modern cross-platform desktop screen recorder built with Electron",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HollmanRivero/ScreenRec-Mac.git"
+    "url": "https://github.com/HollmanRivero/ScreenRec-Win11.git"
   },
   "main": "main.js",
   "scripts": {

@@ -1,33 +1,33 @@
-# ScreenRec
+# ScreenRec for Windows 11 🎥
 
-A modern, high-performance desktop screen recorder built with **Electron** and **Node.js**. 
+A modern, high-performance desktop screen recorder for Windows 11 built with **Electron**, **Node.js**, and **FFmpeg**.
 
-Record your entire display or individual application windows, overlay your webcam with draggable picture-in-picture (PiP), capture and mix microphone and desktop audio, and export cleanly to **MP4, WebM, MOV, AVI, or animated WebP**.
+Record your entire display or individual application windows, overlay your webcam with draggable picture-in-picture (PiP), capture and mix microphone and desktop system audio, and export cleanly to **MP4, WebM, MOV, AVI, or animated WebP**.
 
 ---
 
 ## 🌟 Key Features
 
-- **10-Minutters Gratis Prøvetid (Free Trial)**:
+- **⏳ 10-Minutters Gratis Prøvetid (Free Trial)**:
   - Test alle funksjoner med opptil 10 minutter aktiv opptakstid før kjøp.
   - Live nedtelling i topplinjen (`⏳ Prøvetid: 10:00`).
   - Enkel aktivering med lisensnøkkel (`SCREC-XXXX-XXXX-XXXX`) for å låse opp permanent **PRO-versjon**.
-- **Hurtigvalg (Quick 1-Click Modes)**:
+- **⚡ Hurtigvalg (Quick 1-Click Modes)**:
   - 🖥️ **Bare Skjermen (Screen Only)** — ta opp hele skjermen med ett klikk.
   - 🎥 **Skjerm + Webcam (Combo Overlay)** — legg webkameraet som et flyttbart bilde-i-bilde over skjermen.
   - 🤳 **Kun Webcam (Webcam Only)** — ta opp direkte fra webkameraet som hovedkilde.
-- **Kildevalg & Sanntids Miniatyrbilder**:
+- **🔍 Kildevalg & Sanntids Miniatyrbilder**:
   - Filtrer etter **Alle**, **Skjermer**, eller **Vinduer**.
   - Oppdater kildelisten umiddelbart med roterende `⟳`-knapp.
-- **Flyttbart Webkamera (PiP)**:
+- **🖼️ Flyttbart Webkamera (PiP)**:
   - Klikk og dra webkameraet til ønsket posisjon hvor som helst over forhåndsvisningen.
-- **Flerkanals Lydopptak**:
+- **🎙️ Flerkanals Lydopptak**:
   - Ta opp mikrofonlyd med støydemping og ekkokansellering.
-  - Ta opp system-/skrivebordslyd.
-- **Flere Eksportformater via FFmpeg**:
-  - **MP4** (H.264 + AAC), **WebM** (rask lagring), **MOV** (Apple QuickTime), **AVI**, og **Animert WebP**.
-- **Plattformstøtte**:
-  - Optimalisert for **macOS** (ScreenCaptureKit), **Windows 10/11**, og **Ubuntu / Linux**.
+  - Ta opp system-/skrivebordslyd direkte i Windows 11.
+- **🎬 Flere Eksportformater via FFmpeg**:
+  - **MP4** (H.264 + AAC), **WebM** (rask lagring), **MOV** (QuickTime), **AVI**, og **Animert WebP**.
+- **🪟 Windows 11 Tilpasning**:
+  - Full støtte for Windows 11 Dark Mode, High-DPI skjermer og maskinvareakselerasjon.
 
 ---
 
@@ -42,21 +42,21 @@ ScreenRec leveres med en **10-minutters gratis prøveperiode**. For å fortsette
 2. 🅿️ **PayPal (€30 EUR — Internasjonalt)**:
    - Kjøp direkte i appen med ett klikk, eller betal via [paypal.me/hollmanrivero/30EUR](https://paypal.me/hollmanrivero/30EUR).
 3. 💬 **Direkte bestilling via WhatsApp**:
-   - Send melding til **[+47 972 69 623](https://wa.me/4797269623?text=Hei%20Hollman!%20Jeg%20vil%20kj%C3%B8pe%20lisens%20til%20ScreenRec.)** for direkte assistanse og rask overlevering av lisensnøkkel.
+   - Send melding til **[+47 972 69 623](https://wa.me/4797269623?text=Hei%20Hollman!%20Jeg%20vil%20kj%C3%B8pe%20lisens%20til%20ScreenRec-Win11.)** for direkte assistanse og rask overlevering av lisensnøkkel.
 
 ### Slik aktiverer du lisensen i appen:
-1. Klikk på **Prøvetid**-merket øverst i appen (eller vent til betalingsvinduet dukker opp).
+1. Klikk på **Prøvetid**-merket øverst i appen (eller vent til betalingsvinduet dukker opp etter prøvetiden).
 2. Skriv inn lisensnøkkelen du mottok ved kjøp (format: `SCREC-XXXX-XXXX-XXXX`).
 3. Klikk **Aktiver**. Merket endrer seg til **⭐ PRO LISENS**, og all tidsbegrensning fjernes permanent.
 
 ---
 
-## 🚀 Installasjon og Kjøring
+## 🚀 Installasjon og Kjøring (Utvikler)
 
 ### 1. Klon repositoryet
 ```bash
-git clone https://github.com/HollmanRivero/ScreenRec.git
-cd ScreenRec
+git clone https://github.com/HollmanRivero/ScreenRec-Win11.git
+cd ScreenRec-Win11
 ```
 
 ### 2. Installer avhengigheter
@@ -64,7 +64,7 @@ cd ScreenRec
 npm install
 ```
 
-### 3. Start appen
+### 3. Start appen i utviklermodus
 ```bash
 npm start
 ```
@@ -76,73 +76,27 @@ npm test
 
 ---
 
----
+## 📥 Installasjonsveiledning for Kunder (Windows 11)
 
-## 📥 Installasjonsveiledning for Kunder (Produksjonsfiler)
+Last ned den nyeste installasjonsfilen fra [GitHub Releases](https://github.com/HollmanRivero/ScreenRec-Win11/releases):
 
-Last ned riktig installasjonsfil for ditt operativsystem fra [GitHub Releases](https://github.com/HollmanRivero/ScreenRec/releases):
-
-### 🍏 macOS (`.dmg`)
-1. Last ned `ScreenRec-1.0.0.dmg`.
-2. Dobbeltklikk på `.dmg`-filen og dra **ScreenRec** over til **Applications (Programmer)**.
-3. **Viktig første gang på Mac:**
-   - Gå til **Systeminnstillinger ➔ Personvern og sikkerhet ➔ Skjermopptak** og sørg for at ScreenRec er huket av.
-   - Gi tilgang til Kamera og Mikrofon når appen ber om det.
-
-### 🪟 Windows (`.exe`)
-1. Last ned `ScreenRec-Setup-1.0.0.exe`.
+1. Last ned `ScreenRec Setup 1.0.0.exe` (eller portable `.exe`).
 2. Dobbeltklikk på installasjonsfilen for å installere.
 3. Start **ScreenRec** fra skrivebordet eller startmenyen.
-
-### 🐧 Ubuntu / Linux (`.deb` og `.AppImage`)
-
-Ubuntu og andre Linux-distribusjoner krever ofte spesielle grep ved installasjon av tredjeparts `.deb`-pakker. Her er hvordan du løser det:
-
-#### Alternativ 1: `.deb` pakke (Anbefalt via Terminal)
-Ubuntu Software Center blokkerer ofte tredjeparts `.deb`-filer. Bruk Terminalen for en ren installasjon:
-```bash
-# Gå til mappen der du lastet ned filen (f.eks. Downloads):
-cd ~/Downloads
-
-# Installer med apt (dette henter automatisk inn eventuelle manglende avhengigheter):
-sudo apt install ./ScreenRec_1.0.0_amd64.deb
-```
-*Hvis du møter en feil om manglende avhengigheter:*
-```bash
-sudo apt-get install -f
-```
-
-*For Ubuntu 24.04 (AppArmor / User Namespaces restriksjon):*
-Hvis appen ikke åpner på nyeste Ubuntu 24.04:
-```bash
-sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
-# Eller kjør appen med:
-screenrec --no-sandbox
-```
-
-#### Alternativ 2: `.AppImage` (Kjører direkte uten installasjon)
-Krever ingen `sudo` eller installasjon:
-```bash
-chmod +x ScreenRec-1.0.0.AppImage
-./ScreenRec-1.0.0.AppImage
-```
+4. Gi appen tillatelse til kamera og mikrofon når Windows ber om det.
 
 ---
 
-## 📦 Bygg Installatører (For Utvikler)
+## 📦 Bygg Installatører (Windows)
 
-Som utvikler kan du bygge ferdige produksjonsfiler:
+For å bygge `.exe` installasjonsprogrammet:
 
-```bash
-# Bygg for Mac (.dmg og .zip):
-npm run build:mac
-
-# Bygg for Windows (.exe / NSIS installer):
+```powershell
+# Bygg Windows NSIS installer og Portable exe
 npm run build:win
-
-# Bygg for Linux (.deb og .AppImage):
-npm run build:linux
 ```
+*Eller dobbeltklikk på batchfilen `Build ScreenRec.bat`.*
+
 Alle ferdige installatører havner automatisk i mappen **`dist/`**.
 
 ---
@@ -153,6 +107,7 @@ Alle ferdige installatører havner automatisk i mappen **`dist/`**.
 
 - 💬 **WhatsApp:** [wa.me/4797269623](https://wa.me/4797269623) (`+47 972 69 623`)
 - 📧 **E-post:** [hollman.rivero@smart-things.site](mailto:hollman.rivero@smart-things.site)
+- 🅿️ **PayPal:** [paypal.me/hollmanrivero](https://paypal.me/hollmanrivero)
 
 ---
 
