@@ -4,12 +4,14 @@
   "description": "Modern cross-platform desktop screen recorder built with Electron",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HollmanRivero/ScreenRec-Win11.git"
+    "url": "https://github.com/HollmanRivero/Screen_rec-Windows.git"
   },
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "test": "electron test-full-user-flow.js",
+    "test:cli": "electron main.js --check-audio",
+    "test:record": "electron main.js --test-record 3",
     "dist": "electron-builder",
     "build:mac": "electron-builder --mac",
     "build:win": "electron-builder --win",
@@ -47,7 +49,10 @@
         "AppImage"
       ],
       "category": "Utility"
-    }
+    },
+    "asarUnpack": [
+      "**/node_modules/ffmpeg-static/**/*"
+    ]
   },
   "dependencies": {
     "ffmpeg-static": "^5.3.0"

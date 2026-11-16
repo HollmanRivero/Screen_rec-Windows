@@ -135,6 +135,9 @@
         <div id="rec-badge" class="rec-badge hidden">
           <span class="rec-dot"></span> OPPTAK
         </div>
+        <div id="audio-indicator" class="audio-indicator hidden">
+          <span class="audio-dot"></span> <span id="audio-indicator-text">Lyd: Aktiv</span>
+        </div>
         <div id="timer" class="timer hidden">00:00</div>
       </div>
 
@@ -143,7 +146,13 @@
           <span class="btn-record-icon">&#9679;</span>
           <span id="btn-record-label">Start Opptak</span>
         </button>
-        <div id="status" class="status">Ingen kilde valgt</div>
+        <div class="status-container">
+          <div id="status" class="status">Ingen kilde valgt</div>
+          <div id="status-actions" class="status-actions hidden">
+            <button type="button" id="btn-open-file" class="btn-action-mini" title="Spill av opptaket">▶ Spill av</button>
+            <button type="button" id="btn-open-folder" class="btn-action-mini" title="Åpne mappen der opptaket ble lagret">📁 Vis i mappe</button>
+          </div>
+        </div>
       </div>
     </div>
 

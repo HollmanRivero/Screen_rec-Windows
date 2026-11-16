@@ -55,8 +55,8 @@ ScreenRec leveres med en **10-minutters gratis prøveperiode**. For å fortsette
 
 ### 1. Klon repositoryet
 ```bash
-git clone https://github.com/HollmanRivero/ScreenRec-Win11.git
-cd ScreenRec-Win11
+git clone https://github.com/HollmanRivero/Screen_rec-Windows.git
+cd Screen_rec-Windows
 ```
 
 ### 2. Installer avhengigheter
@@ -78,7 +78,7 @@ npm test
 
 ## 📥 Installasjonsveiledning for Kunder (Windows 11)
 
-Last ned den nyeste installasjonsfilen fra [GitHub Releases](https://github.com/HollmanRivero/ScreenRec-Win11/releases):
+Last ned den nyeste installasjonsfilen fra [GitHub Releases](https://github.com/HollmanRivero/Screen_rec-Windows/releases):
 
 1. Last ned `ScreenRec Setup 1.0.0.exe` (eller portable `.exe`).
 2. Dobbeltklikk på installasjonsfilen for å installere.

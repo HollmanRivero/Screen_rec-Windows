@@ -24,6 +24,12 @@ const btnMinimize        = document.getElementById('btn-minimize')
 const btnClose           = document.getElementById('btn-close')
 const permissionBanner   = document.getElementById('permission-banner')
 const btnOpenSettings    = document.getElementById('btn-open-settings')
+const audioIndicator     = document.getElementById('audio-indicator')
+const audioIndicatorText = document.getElementById('audio-indicator-text')
+const audioDot           = document.querySelector('.audio-dot')
+const statusActions      = document.getElementById('status-actions')
+const btnOpenFile        = document.getElementById('btn-open-file')
+const btnOpenFolder      = document.getElementById('btn-open-folder')
 
 // License & Modal Elements
 const licenseBadge        = document.getElementById('license-badge')
@@ -65,6 +71,9 @@ let isStartingRecording = false
 let timerInterval       = null
 let elapsedSeconds      = 0
 let compositionCleanup  = null
+let audioMonitorInterval = null
+let lastSavedFilePath    = null
+let recordingHadAudio    = false
 
 let licenseStatus = {
   isActivated: false,
@@ -649,6 +658,56 @@ document.addEventListener('mouseup', () => {
 })
 
 // ── Recording Execution ──
+function startAudioMonitor(audioSourceNode, ctx) {
+  if (!audioIndicator) return
+  audioIndicator.classList.remove('hidden')
+  if (audioDot) audioDot.classList.remove('silent')
+  if (audioIndicatorText) audioIndicatorText.textContent = 'Lyd: Koblet til'
+
+  try {
+    const analyser = ctx.createAnalyser()
+    analyser.fftSize = 256
+    audioSourceNode.connect(analyser)
+    const dataArray = new Uint8Array(analyser.frequencyBinCount)
+
+    audioMonitorInterval = setInterval(() => {
+      analyser.getByteFrequencyData(dataArray)
+      let sum = 0
+      for (let i = 0; i < dataArray.length; i++) sum += dataArray[i]
+      const avg = sum / dataArray.length
+      if (avg > 2) {
+        if (audioDot) audioDot.classList.remove('silent')
+        if (audioIndicatorText) audioIndicatorText.textContent = 'Lyd: Aktiv'
+      } else {
+        if (audioDot) audioDot.classList.add('silent')
+        if (audioIndicatorText) audioIndicatorText.textContent = 'Lyd: Stille'
+      }
+    }, 300)
+  } catch (e) {
+    console.warn('Audio monitor error:', e)
+  }
+}
+
+function stopAudioMonitor() {
+  if (audioMonitorInterval) {
+    clearInterval(audioMonitorInterval)
+    audioMonitorInterval = null
+  }
+  if (audioIndicator) audioIndicator.classList.add('hidden')
+}
+
+if (btnOpenFile) {
+  btnOpenFile.addEventListener('click', () => {
+    if (lastSavedFilePath) ipcRenderer.invoke('open-file', lastSavedFilePath)
+  })
+}
+
+if (btnOpenFolder) {
+  btnOpenFolder.addEventListener('click', () => {
+    if (lastSavedFilePath) ipcRenderer.invoke('open-file-location', lastSavedFilePath)
+  })
+}
+
 btnRecord.addEventListener('click', () => {
   if (isRecording) stopRecording()
   else             startRecording()
@@ -757,6 +816,7 @@ function stopRecording() {
   if (!mediaRecorder || mediaRecorder.state === 'inactive') return
   mediaRecorder.stop()
   isRecording = false
+  stopAudioMonitor()
 
   btnRecord.classList.remove('recording')
   btnRecordLabel.textContent = 'Start Opptak'
@@ -843,7 +903,22 @@ async function saveRecording() {
   const blob = new Blob(recordedChunks, { type: 'video/webm' })
   const arrayBuffer = await blob.arrayBuffer()
   
-  const result = await ipcRenderer.invoke('save-recording', { buffer: arrayBuffer, format: outputFormat })
+  const result = await ipcRenderer.invoke('save-recording', {
+    buffer: arrayBuffer,
+    format: outputFormat,
+    targetPath: window.__cliTargetPath || null
+  })
+  if (result.success) {
+    lastSavedFilePath = result.filePath
+    const audioNote = recordingHadAudio ? ' (med lydspor ✓)' : ''
+    if (result.fallbackNotice) {
+      setStatus(result.fallbackNotice)
+    } else {
+      setStatus(`Opptak lagret${audioNote}!`)
+    }
+    if (statusActions) statusActions.classList.remove('hidden')
+    return
+  }
   if (result.success) {
     if (result.fallbackNotice) {
       setStatus(result.fallbackNotice)
