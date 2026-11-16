@@ -42,7 +42,7 @@ ScreenRec leveres med en **10-minutters gratis prøveperiode**. For å fortsette
 2. 🅿️ **PayPal (€30 EUR — Internasjonalt)**:
    - Kjøp direkte i appen med ett klikk, eller betal via [paypal.me/hollmanrivero/30EUR](https://paypal.me/hollmanrivero/30EUR).
 3. 💬 **Direkte bestilling via WhatsApp**:
-   - Send melding til **[+47 972 69 623](https://wa.me/4797269623?text=Hei%20Hollman!%20Jeg%20vil%20kj%C3%B8pe%20lisens%20til%20ScreenRec-Win11.)** for direkte assistanse og rask overlevering av lisensnøkkel.
+   - Send melding til **[+47 972 69 623](https://wa.me/4797269623?text=Hei%20Hollman!%20Jeg%20vil%20kj%C3%B8pe%20lisens%20til%20ScreenRec.)** for direkte assistanse og rask overlevering av lisensnøkkel.
 
 ### Slik aktiverer du lisensen i appen:
 1. Klikk på **Prøvetid**-merket øverst i appen (eller vent til betalingsvinduet dukker opp etter prøvetiden).
